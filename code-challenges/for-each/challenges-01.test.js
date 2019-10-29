@@ -60,20 +60,21 @@ Return the modified array.
 const removeOne = (num, arr) => {
   if(num % 3 === 2) arr.pop();
 };
-
+// assistance from Conor McCue
 const removeElements = (arr, callback) => {
   for(let i = 0; i < arr.length; i++){
     callback(arr[i], arr);
   }
   return arr;
 };
-
+ 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
 ------------------------------------------------------------------------------------------------ */
 
+// assistance from Conor McCue
 const removeWithForEach = (arr, callback) => {
   arr.forEach(item => callback(item, arr));
   return arr;
@@ -89,6 +90,7 @@ This function should use forEach again, but rather than taking in a callback as 
 This anonymous function should accept up to three arguments: the element, the index, and the array.
 ------------------------------------------------------------------------------------------------ */
 
+//assistance from David Vloedman
 const removeWithAnon = (arr) => {
   arr.forEach(function(element, index, array){
     if(element % 3 === 2) arr.pop();
@@ -113,8 +115,15 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
+//assistance from Mark Swearingen
 const createList = (availableItems) => {
-  // Solution code here...
+  let list = [];
+  availableItems.forEach(function(element, index){
+    if(availableItems[index].available === true){
+      list.push(availableItems[index].name)
+    }
+  })
+  return list;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -132,7 +141,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let fizzBuzz = [];
+    arr.forEach(function(element){
+      if (element % 3 === 0 && element % 5 === 0){
+        fizzBuzz.push('Fizz Buzz');
+      } else if (element % 3 === 0){
+        fizzBuzz.push('Fizz');
+      } else if (element % 5 === 0){
+        fizzBuzz.push('Buzz');
+      } else {
+        fizzBuzz.push(element);
+      }  
+    })
+ return fizzBuzz;
 };
 
 /* ------------------------------------------------------------------------------------------------
