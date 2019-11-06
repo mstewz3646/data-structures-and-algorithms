@@ -68,7 +68,7 @@ let characters = [
   }
 ];
 
-//credit to Holly
+//credit to Holly Davis
 const getHouses = (arr) => {
   let houses = [];
   Object.values(arr).forEach(value => {
@@ -89,9 +89,19 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
+// credit to Holly Davis
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  let children = null;
+  Object.values(arr).forEach( value => {
+    if (value.name === character) {
+      if (value.children.length === 0) {
+        children = false;
+      } else {
+        children = true;
+      }
+    }
+    return children;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,7 +124,15 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
-};
+  //class example
+//   let count = 0;
+//   Object.values(arr).forEach(character => {
+//     count ++;
+//     if (character.spouse) count ++;
+//     count += character.children.length;
+//   });
+//   return count;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -128,9 +146,20 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
-  return sizes;
-};
+  
+  //challenge example
+//   Object.values(arr).forEach(person => {
+//     let sum = 1;
+
+//     if(person.spouse) sum++;
+//     person.children.forEach( () => sum ++);
+//     sizes.push ({
+//       house: person.house,
+//       members: sum
+//     })
+//   });
+//   return sizes;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
